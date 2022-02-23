@@ -26,7 +26,11 @@ public class SnakeAndLadder {
                 }
             } else if (option == IS_LADDER) {
                 CurrentPosition = CurrentPosition + diceNumber;
-                System.out.println("ladder option at " + CurrentPosition);
+                if (CurrentPosition > WINNING_POSITION){
+                    CurrentPosition = CurrentPosition - diceNumber;
+                }else {
+                    System.out.println("ladder option at " + CurrentPosition);
+                }
             } else {
                 System.out.println("no play at " + CurrentPosition);
             }

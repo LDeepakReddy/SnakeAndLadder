@@ -9,9 +9,12 @@ public class SnakeAndLadder {
         int START_POSITION = 0;
         int WINNING_POSITION = 100;
         int CurrentPosition = START_POSITION;
+        int DiceCount = 0;
 
         System.out.println("welcome to the snake and ladder program");
+
         while (CurrentPosition < WINNING_POSITION) {
+            DiceCount++;
             //Rolling Dice
             int diceNumber = (int) Math.floor(Math.random() * 10) % 6 + 1;
             //check for options
@@ -22,20 +25,25 @@ public class SnakeAndLadder {
                     CurrentPosition = START_POSITION;
                 } else {
                     CurrentPosition = CurrentPosition - diceNumber;
-                    System.out.println("snake option at " + CurrentPosition);
+                    System.out.println("Dice Rolled to---- " + diceNumber + "----Snake---- " + CurrentPosition + " Position");
                 }
+
             } else if (option == IS_LADDER) {
                 CurrentPosition = CurrentPosition + diceNumber;
-                if (CurrentPosition > WINNING_POSITION){
+                if (CurrentPosition > WINNING_POSITION) {
                     CurrentPosition = CurrentPosition - diceNumber;
-                }else {
-                    System.out.println("ladder option at " + CurrentPosition);
+                } else {
+                    System.out.println("Dice ROlled to---- " + diceNumber + "----Ladder---- " + CurrentPosition + " Position ");
                 }
+
             } else {
-                System.out.println("no play at " + CurrentPosition);
+                System.out.println("Dice Rolled to----" + diceNumber + "----NoPlay----" + CurrentPosition + " Position ");
             }
         }
+
         System.out.println("Player Current position is " + CurrentPosition);
+
+        System.out.println("Dice rolled total " + DiceCount + " times ");
 
     }
 }
